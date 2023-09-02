@@ -1,2 +1,11 @@
-# Histopathological-Image-Classification
-Methodologye used to classify breast cancer histopathological images as part of a datachallenge organised at Telecom Paris
+# Histopathological Image Classification
+
+## Context of the project
+
+## Dataset
+BraekHis
+
+## Results
+![](./screenshot-results.png)
+
+## Limits / Evolutions
