@@ -117,5 +117,20 @@ From the images alone, finding the dataset from which they had been extracted wa
 Even with a perfect classifier, getting a perfect score is thus dependent on luck !
 
 ## Results
+I obtained my best score with the following classifier :
+* **SVM classifier with Tanimoto Kernel** (implementation found [here](https://github.com/gmum/pykernels/blob/master/pykernels/regular.py)), using a regularization parameter C=6
+* 7 feature extractors
+  * Parameter-Free Threshold Adjacency Statistics (PFTAS)
+  * Channel color statistics (mean, standard deviation, skewness, kurtosis)
+  * Hu Moments
+  * Haralick features
+  * 11 bits HSV color histogram
+  * Local Binary Patterning (LBP), with a radius of 9 pixels and 72 points
+  * SIFT, with a Bag of Words of 300 centroids
+
+The theory behind each feature is explained in the presentation in PDF format, the choice of the parameters for each feature is detailed in the jupyter notebook. <br>
+The combination of these features allowed me to score 1st amongst 41 participants in the alloted time, as shown in the screenshot below :
 ![](./images/screenshot-results.png)
+
+Interestingly, with some efforts, Joffrey MA managed to get a better F1-score of 0.815458990715 after the deadline, by finetuning a Swin model pretrained on Imagenet (weights taken from [Huggingface](https://huggingface.co/microsoft/swin-base-patch4-window7-224-in22k)). A deep learning approach was thus reasonable, but required a pretrained model and considerably more computing ressources.
 
