@@ -134,3 +134,10 @@ The combination of these features allowed me to score 1st amongst 41 participant
 
 Interestingly, with some efforts, Joffrey MA managed to get a better F1-score of 0.815458990715 after the deadline, by finetuning a Swin model pretrained on Imagenet (weights taken from [Huggingface](https://huggingface.co/microsoft/swin-base-patch4-window7-224-in22k)). A deep learning approach was thus reasonable, but required a pretrained model and considerably more computing ressources.
 
+## References
+
+1. [PFTAS](https://bmcbioinformatics.biomedcentral.com/counter/pdf/10.1186/1471-2105-8-110.pdf) : Nicholas A Hamilton et al. *Fast automated cell phenotype image classification*, BMC Bioinformatics, March 2007
+2. [Hu moments](https://ieeexplore.ieee.org/document/1057692) : Ming-Kuei Hu *Visual pattern recognition by moment invariants*, IEEE IRE Transactions on Information Theory, February 1962
+3. [Haralick](https://ieeexplore.ieee.org/document/4309314) : Robert M Haralick et al. *Textural Features for Image Classification*, IEEE Transactions On Systems Man And Cybernetics, November 1973
+4. [LBP](http://vision.stanford.edu/teaching/cs231b_spring1415/papers/lbp.pdf) : T. Ojala and al. *Multiresolution gray-scale and rotation invariant texture classification with local binary patterns*, IEEE Transactions on Pattern Analysis and Machine Intelligence, July 2002
+5. [SIFT](https://www.cs.ubc.ca/~lowe/papers/ijcv04.pdf) : David G. Lowe. *Distinctive Image Features from Scale-Invariant Keypoints*, International Journal of Computer Vision, November 2004
