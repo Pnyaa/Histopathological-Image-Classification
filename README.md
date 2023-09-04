@@ -86,13 +86,22 @@ The goal of the project was to classify breast cancer histopathological images i
   </tbody>
 </table>
 
-Histologically benign is a term referring to a lesion that does not match any criteria of malignancy – e.g., marked cellular atypia, mitosis, disruption of basement membranes, metastasize, etc. Normally, benign tumors are relatively “innocents”, presents slow growing and remains localized. Malignant tumor is a synonym for cancer: lesion can invade and destroy adjacent structures (locally invasive) and spread to distant sites (metastasize) to cause death. Samples present in the dataset were collected by SOB method, also named partial mastectomy or excisional biopsy. This type of procedure, compared to any methods of needle biopsy, removes the larger size of tissue sample and is done in a hospital with general anesthetic.
+All images are extracted from the **[BreakHis dataset](https://web.inf.ufpr.br/vri/databases/breast-cancer-histopathological-database-breakhis/)**. It is used as a benchmark in many medical imaging competition, but often only for binary classification (identifying if a tumor is benign or malignant). Histologically benign is a term referring to a lesion that does not match any criteria of malignancy – e.g., marked cellular atypia, mitosis, disruption of basement membranes, metastasize, etc. Normally, benign tumors are relatively “innocents”, presents slow growing and remains localized. Malignant tumor is a synonym for cancer: lesion can invade and destroy adjacent structures (locally invasive) and spread to distant sites (metastasize) to cause death. <br>
+The samples present in the dataset were collected by SOB method, also named partial mastectomy or excisional biopsy. This type of procedure, compared to any methods of needle biopsy, removes the larger size of tissue sample and is done in a hospital with general anesthetic.
 
+The annoted dataset (Train folder) used in this challenge consists of **422 images** randomly extracted from BreakHis, the number of images to classify (Test folder) contains **207 images**. <br>
+The images are of dimension 700x456 or 700x460 pixels in RGB format. <br>
+The **metric** used to rank the submissions in this datachallenge was the **[F1-score](https://en.wikipedia.org/wiki/F-score)**, which gives equal importance to precision and recall. The accuracy of the submitted classifiers was also displayed, but not used for scoring.
 
-[BreakHis](https://web.inf.ufpr.br/vri/databases/breast-cancer-histopathological-database-breakhis/)
+## Key difficulties
 
-## Difficulties and solutions
+Three main difficulties had to be addressed during this datachallenge :
+* <ins>Small size of the dataset</ins> <br>
+The state of the art for histopathological image classification is currently composed of methods based on Deep Learning, which require a consequent number of images to train from scratch. The small number of training images made this kind of approach unreasonable, so I instead opted for more traditionnal image classification techniques based on feature extraction and classical machine learning (e.g. SVM, Random Forest, Boosting, Logistic Regression). The small number of images could alos be leveraged by using more computationally intensive but rigorous cross-validation methods, such as Leave-One-Out.
+* <ins>Class imbalance</ins>
+* <ins>Multipe labels per sample</ins>
 
+## Methodology
 
 ## Results
 ![](./screenshot-results.png)
