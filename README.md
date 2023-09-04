@@ -129,10 +129,10 @@ I obtained my best score with the following classifier :
   * SIFT, with a Bag of Words of 300 centroids
 
 The theory behind each feature is explained in the presentation in PDF format, the choice of the parameters for each feature is detailed in the jupyter notebook. <br>
-The combination of these features allowed me to score 1st amongst 41 participants in the alloted time, as shown in the screenshot below :
+The combination of these features allowed me to **score 1st amongst 36 participants** in the alloted time, as shown in the screenshot below :
 ![](./images/screenshot-results.png)
 
-Interestingly, with some efforts, Joffrey MA managed to get a better F1-score of 0.815458990715 after the deadline, by finetuning a Swin model pretrained on Imagenet (weights taken from [Huggingface](https://huggingface.co/microsoft/swin-base-patch4-window7-224-in22k)). A deep learning approach was thus reasonable, but required a pretrained model and considerably more computing ressources.
+Interestingly, with some efforts, Joffrey MA managed to get a better **F1-score of 0.815458990715** *after the deadline*, by finetuning a Swin model pretrained on Imagenet (weights taken from [Huggingface](https://huggingface.co/microsoft/swin-base-patch4-window7-224-in22k)). A deep learning approach was thus reasonable, but required a pretrained model and considerably more computing ressources.
 
 ## References
 
