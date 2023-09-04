@@ -108,11 +108,11 @@ This can bias the model towards more represented classes, and make the learning 
 From the images alone, finding the dataset from which they had been extracted was not difficult. However, the annotations for each image are made by experts who have access to more than just the histopathological images, and who know that several images actually come from a single slice, from a single patient - information which is not available on the test set. Finally, several types of tumor may be present in a single image. For all these reasons, many images can actually be classified into several classes. There is an especially high number of such cases for classes **DC** (Carcinoma) and **LC** (Lobular Carcinoma), as can be seen in the following examples where the same image was found in the Train folder, in the Test folder and in the BreakHis dataset with a name different from the Train Folder
 
 
-| Image | Name in the Test folder | Name in the Train folder | Alias name in the BreakHis dataset | Possible classes |
+| Image | Name in the Test folder | Alias name in the BreakHis dataset | Name in the Train folder | Possible classes |
 |:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|
-![SLO_01](./data-challenge/Test/SOB_18.png)  |  SOB_18 | SOB_M_LC-14-13412-100-026  |  SOB_M_DC-14-13412-100-026 | LC or DC
-![SLO_01](./data-challenge/Test/SOB_28.png)  |  SOB_28 | SOB_M_LC-14-13412-100-025  |  SOB_M_DC-14-13412-100-025 | LC or DC
-![SLO_01](./data-challenge/Test/SOB_29.png)  |  SOB_29 | SOB_M_LC-14-13412-100-001  |  SOB_M_DC-14-13412-100-001 | LC or DC
+![SLO_01](./data-challenge/Test/SOB_18.png)  |  SOB_18 | SOB_M_LC-14-13412-100-026  |  [SOB_M_DC-14-13412-100-026](./data-challenge/Train/SOB_M_DC-14-13412-100-026.png) | LC or DC
+![SLO_01](./data-challenge/Test/SOB_28.png)  |  SOB_28 | SOB_M_LC-14-13412-100-025  |  [SOB_M_DC-14-13412-100-025](./data-challenge/Train/SOB_M_DC-14-13412-100-025.png) | LC or DC
+![SLO_01](./data-challenge/Test/SOB_29.png)  |  SOB_29 | SOB_M_LC-14-13412-100-001  |  [SOB_M_DC-14-13412-100-001](./data-challenge/Train/SOB_M_DC-14-13412-100-001.png) | LC or DC
 
 Even with a perfect classifier, getting a perfect score is thus dependent on luck !
 
