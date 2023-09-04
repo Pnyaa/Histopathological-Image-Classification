@@ -1,11 +1,99 @@
 # Histopathological Image Classification
 
+This repository comprises my solution to a datachallenge organised at Telecom Paris at the end of a Machine Learning course, before delving deeper into Deep Learning. It contains :
+* A [jupyter notebook](./Histopathological_Image_Classification.ipynb) detailing my classification algorithm and the choices taken to develop it
+* A [presentation](./Restitution_Datachallenge.pdf) of the approach in PDF format, used to explain my reasoning to the whole promotion at the end of the challenge
+* The [images](./data-challenge) used as dataset for the challenge
+
+
 ## Context of the project
 
-## Dataset
-[BraekHis](https://web.inf.ufpr.br/vri/databases/breast-cancer-histopathological-database-breakhis/)
+The goal of the project was to classify breast cancer histopathological images into 8 different classes, each identified by different letters in the image filename. An overview of the different classes involved is given in the table below :
+<table>
+  <thead>
+    <tr>
+      <th align="center">Class ID</th>
+      <th align="center">Identifying letters</th>
+      <th align="center">Tumor full name</th>
+      <th colspan="3" align="center">Images sample</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center">1</td>
+      <td align="center">F</td>
+      <td align="center">Fibroadenoma (benign)</td>
+      <td align="center"><img src="./data-challenge/Train/SOB_B_F-14-29960AB-100-002.png" alt="F1" style="max-width: 100%;"></td>
+      <td align="center"><img src="./data-challenge/Train/SOB_B_F-14-23060CD-100-011.png" alt="F2" style="max-width: 100%;"></td>
+      <td align="center"><img src="./data-challenge/Train/SOB_B_F-14-21998CD-100-025.png" alt="F3" style="max-width: 100%;"></td>
+    </tr>
+    <tr>
+      <td align="center">2</td>
+      <td align="center">DC</td>
+      <td align="center">Carcinoma (malignant)</td>
+      <td align="center"><img src="./data-challenge/Train/SOB_M_DC-14-10926-100-003.png" alt="DC1" style="max-width: 100%;"></td>
+      <td align="center"><img src="./data-challenge/Train/SOB_M_DC-14-11031-100-014.png" alt="DC2" style="max-width: 100%;"></td>
+      <td align="center"><img src="./data-challenge/Train/SOB_M_DC-14-13412-100-003.png" alt="DC3" style="max-width: 100%;"></td>
+    </tr>
+    <tr>
+      <td align="center">3</td>
+      <td align="center">PC</td>
+      <td align="center">Papillary Carcinoma (malignant)</td>
+      <td align="center"><img src="./data-challenge/Train/SOB_M_PC-14-9146-100-015.png" alt="PC1" style="max-width: 100%;"></td>
+      <td align="center"><img src="./data-challenge/Train/SOB_M_PC-14-15687B-100-013.png" alt="PC2" style="max-width: 100%;"></td>
+      <td align="center"><img src="./data-challenge/Train/SOB_M_PC-14-19440-100-001.png" alt="PC3" style="max-width: 100%;"></td>
+    </tr>
+    <tr>
+      <td align="center">4</td>
+      <td align="center">PT</td>
+      <td align="center">Phyllodes Tumor (benign)</td>
+      <td align="center"><img src="./data-challenge/Train/SOB_B_PT-14-21998AB-100-012.png" alt="PT1" style="max-width: 100%;"></td>
+      <td align="center"><img src="./data-challenge/Train/SOB_B_PT-14-21998AB-100-041.png" alt="PT2" style="max-width: 100%;"></td>
+      <td align="center"><img src="./data-challenge/Train/SOB_B_PT-14-29315EF-100-005.png" alt="PT3" style="max-width: 100%;"></td>
+    </tr>
+    <tr>
+      <td align="center">5</td>
+      <td align="center">MC</td>
+      <td align="center">Mucinous Carcinoma (malignant)</td>
+      <td align="center"><img src="./data-challenge/Train/SOB_M_MC-14-10147-100-004.png" alt="MC1" style="max-width: 100%;"></td>
+      <td align="center"><img src="./data-challenge/Train/SOB_M_MC-14-12773-100-008.png" alt="MC2" style="max-width: 100%;"></td>
+      <td align="center"><img src="./data-challenge/Train/SOB_M_MC-14-12773-100-021.png" alt="MC3" style="max-width: 100%;"></td>
+    </tr>
+    <tr>
+      <td align="center">6</td>
+      <td align="center">LC</td>
+      <td align="center">Lobular Carcinoma (malignant)</td>
+      <td align="center"><img src="./data-challenge/Train/SOB_M_LC-14-16196-100-004.png" alt="LC1" style="max-width: 100%;"></td>
+      <td align="center"><img src="./data-challenge/Train/SOB_M_LC-14-12204-100-031.png" alt="LC2" style="max-width: 100%;"></td>
+      <td align="center"><img src="./data-challenge/Train/SOB_M_LC-14-16196-100-003.png" alt="LC3" style="max-width: 100%;"></td>
+    </tr>
+    <tr>
+      <td align="center">7</td>
+      <td align="center">A</td>
+      <td align="center">Adenosis (benign)</td>
+      <td align="center"><img src="./data-challenge/Train/SOB_B_A-14-22549CD-100-002.png" alt="A1" style="max-width: 100%;"></td>
+      <td align="center"><img src="./data-challenge/Train/SOB_B_A-14-22549AB-100-002.png" alt="A2" style="max-width: 100%;"></td>
+      <td align="center"><img src="./data-challenge/Train/SOB_B_A-14-22549G-100-008.png" alt="A3" style="max-width: 100%;"></td>
+    </tr>
+    <tr>
+      <td align="center">8</td>
+      <td align="center">TA</td>
+      <td align="center">Tubular Adenona (benign)</td>
+      <td align="center"><img src="./data-challenge/Train/SOB_B_TA-14-3411F-100-004.png" alt="TA1" style="max-width: 100%;"></td>
+      <td align="center"><img src="./data-challenge/Train/SOB_B_TA-14-3411F-100-007.png" alt="TA2" style="max-width: 100%;"></td>
+      <td align="center"><img src="./data-challenge/Train/SOB_B_TA-14-3411F-100-012.png" alt="TA31" style="max-width: 100%;"></td>
+    </tr>
+  </tbody>
+</table>
+
+Histologically benign is a term referring to a lesion that does not match any criteria of malignancy – e.g., marked cellular atypia, mitosis, disruption of basement membranes, metastasize, etc. Normally, benign tumors are relatively “innocents”, presents slow growing and remains localized. Malignant tumor is a synonym for cancer: lesion can invade and destroy adjacent structures (locally invasive) and spread to distant sites (metastasize) to cause death. Samples present in the dataset were collected by SOB method, also named partial mastectomy or excisional biopsy. This type of procedure, compared to any methods of needle biopsy, removes the larger size of tissue sample and is done in a hospital with general anesthetic.
+
+
+[BreakHis](https://web.inf.ufpr.br/vri/databases/breast-cancer-histopathological-database-breakhis/)
+
+## Difficulties and solutions
+
 
 ## Results
 ![](./screenshot-results.png)
 
-## Limits / Evolutions
