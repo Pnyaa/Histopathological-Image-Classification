@@ -96,13 +96,26 @@ The **metric** used to rank the submissions in this datachallenge was the **[F1-
 ## Key difficulties
 
 Three main difficulties had to be addressed during this datachallenge :
-* <ins>Small size of the dataset</ins> <br>
-The state of the art for histopathological image classification is currently composed of methods based on Deep Learning, which require a consequent number of images to train from scratch. The small number of training images made this kind of approach unreasonable, so I instead opted for more traditionnal image classification techniques based on feature extraction and classical machine learning (e.g. SVM, Random Forest, Boosting, Logistic Regression). The small number of images could alos be leveraged by using more computationally intensive but rigorous cross-validation methods, such as Leave-One-Out.
-* <ins>Class imbalance</ins>
-* <ins>Multipe labels per sample</ins>
+* **Small size of the dataset** <br>
+The state of the art for histopathological image classification is currently composed of methods based on Deep Learning, which require a consequent number of images to train from scratch. The small number of training images made this kind of approach unreasonable, so I instead opted for more traditionnal image classification techniques based on feature extraction and classical machine learning (e.g. SVM, Random Forest, Boosting, Logistic Regression). The small number of images could alos be leveraged by using more computationally intensive but rigorous cross-validation methods, such as **Leave-One-Out**.
+* **Class imbalance** <br>
+As can be seen on the following graph, the repartition of images in each class is heavily imbalanced.
+<p align="center"><img src="./images/Class_imbalance.png" /></p>
 
-## Methodology
+This can bias the model towards more represented classes, and make the learning of general features harder for the least represented classes (LC and TA in this case).
+
+* **Multi-labels images** <br>
+From the images alone, finding the dataset from which they had been extracted was not difficult. However, the annotations for each image are made by experts who have access to more than just the histopathological images, and who know that several images actually come from a single slice, from a single patient - information which is not available on the test set. Finally, several types of tumor may be present in a single image. For all these reasons, many images can actually be classified into several classes. There is an especially high number of such cases for classes **DC** (Carcinoma) and **LC** (Lobular Carcinoma), as can be seen in the following examples where the same image was found in the Train folder, in the Test folder and in the BreakHis dataset with a name different from the Train Folder
+
+
+| Image | Name in the Test folder | Name in the Train folder | Alias name in the BreakHis dataset | Possible classes |
+|:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|
+![SLO_01](./data-challenge/Test/SOB_18.png)  |  SOB_18 | SOB_M_LC-14-13412-100-026  |  SOB_M_DC-14-13412-100-026 | LC or DC
+![SLO_01](./data-challenge/Test/SOB_28.png)  |  SOB_28 | SOB_M_LC-14-13412-100-025  |  SOB_M_DC-14-13412-100-025 | LC or DC
+![SLO_01](./data-challenge/Test/SOB_29.png)  |  SOB_29 | SOB_M_LC-14-13412-100-001  |  SOB_M_DC-14-13412-100-001 | LC or DC
+
+Even with a perfect classifier, getting a perfect score is thus dependent on luck !
 
 ## Results
-![](./screenshot-results.png)
+![](./images/screenshot-results.png)
 
