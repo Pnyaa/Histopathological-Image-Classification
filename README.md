@@ -99,7 +99,7 @@ Three main difficulties had to be addressed during this datachallenge :
 * **Small size of the dataset** <br>
 The state of the art for histopathological image classification is currently composed of methods based on Deep Learning, which require a consequent number of images to train from scratch. The small number of training images made this kind of approach unreasonable, so I instead opted for more traditionnal image classification techniques based on feature extraction and classical machine learning (e.g. SVM, Random Forest, Boosting, Logistic Regression). The small number of images could alos be leveraged by using more computationally intensive but rigorous cross-validation methods, such as **Leave-One-Out**.
 * **Class imbalance** <br>
-As can be seen on the following graph, the repartition of images in each class is heavily imbalanced.
+As can be seen on the following graph, the repartition of images in each class is heavily unbalanced.
 <p align="center"><img src="./images/Class_imbalance.png" /></p>
 
 This can bias the model towards more represented classes, and make the learning of general features harder for the least represented classes (LC and TA in this case).
@@ -129,7 +129,7 @@ I obtained my best score with the following classifier :
   * SIFT, with a Bag of Words of 300 centroids
 
 The theory behind each feature is explained in the presentation in PDF format, the choice of the parameters for each feature is detailed in the jupyter notebook. <br>
-The combination of these features allowed me to **score 1st amongst 36 participants** in the alloted time, as shown in the screenshot below :
+The combination of these features allowed me to **score 1<sup>st</sup> amongst 36 participants** in the alloted time, as shown in the screenshot below :
 ![](./images/screenshot-results.png)
 
 Interestingly, with some efforts, Joffrey MA managed to get a better **F1-score of 0.815458990715** *after the deadline*, by finetuning a Swin model pretrained on Imagenet (weights taken from [Huggingface](https://huggingface.co/microsoft/swin-base-patch4-window7-224-in22k)). A deep learning approach was thus reasonable, but required a pretrained model and considerably more computing ressources.
